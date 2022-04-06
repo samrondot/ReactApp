@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Dashboard from './Components/Dashboard';
+import PageNotFound from './Components/PageNotFound';
+import TodoApp from './Components/TodoApp';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <BrowserRouter>
+      <Routes>
+        <Route path = '/' element = {<TodoApp />}/>
+        <Route path='Dashboard' element ={<Dashboard />} />
+        <Route path = '*' element ={<PageNotFound />} />
+      </Routes>
+    
+    
+    </BrowserRouter>
+   
+    </>
+    )
 }
 
 export default App;
